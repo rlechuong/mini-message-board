@@ -13,7 +13,13 @@
     <h3>User</h3>
     <p><%= message.user %></p>
     <h3>Date</h3>
-    <p><%= message.added %></p>
+    <p>
+      <%= message.added.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }) %>
+    </p>
 
     <a href="/">Back To Board</a>
   </body>
