@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Message Board</title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <header>
+      <h1>Mini Message Board</h1>
+    </header>
     <form method="POST" action="/new">
-      <h1>New Message</h1>
+      <h2>New Message</h2>
 
       <label for="messageUser">User</label>
       <input type="text" id="messageUser" name="messageUser" required />
@@ -15,7 +19,10 @@
       <label for="messageText">Message</label>
       <textarea id="messageText" name="messageText" required></textarea>
 
-      <button type="submit">Send Message</button>
+      <div class="form-actions">
+        <button type="submit">Send Message</button>
+        <a href="/">Cancel</a>
+      </div>
     </form>
   </body>
 </html>

@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Message Board</title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <h1>Message Details</h1>
+    <header>
+      <h1>Mini Message Board</h1>
+    </header>
 
-    <h3>Text</h3>
-    <p><%= message.text %></p>
-    <h3>User</h3>
-    <p><%= message.user %></p>
-    <h3>Date</h3>
-    <p>
-      <%= message.added.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }) %>
-    </p>
+    <div class="message-detail">
+      <h2>Message Details</h2>
+      
+      <h3>Text</h3>
+      <p><%= message.text %></p>
+      <h3>User</h3>
+      <p><%= message.user %></p>
+      <h3>Date</h3>
+      <p>
+        <%= message.added.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }) %>
+      </p>
 
-    <a href="/">Back To Board</a>
+      <a href="/" class="back-link">Back To Board</a>
+    </div>
   </body>
 </html>
