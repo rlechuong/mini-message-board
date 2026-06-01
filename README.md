@@ -2,6 +2,10 @@
 
 A simple message board built with Node.js and Express where users can post messages and view individual message details.
 
+## Live Demo
+
+https://mini-message-board-production-c80a.up.railway.app/
+
 ## Features
 
 - View all messages on the index page
