@@ -26,5 +26,8 @@ indexRouter.post("/new", (req, res) => {
   messages.push({ text: messageText, user: messageUser, added: new Date() });
   res.redirect("/");
 });
+indexRouter.get("/messages/:id", (req, res) => {
+  res.render("message", { message: messages[Number(req.params.id)] });
+});
 
 export { indexRouter };

@@ -8,11 +8,13 @@
   <body>
     <h1><%= title %></h1>
     <ul>
-      <% messages.forEach((message) => { %>
+      <% messages.forEach((message, index) => { %>
         <li>
           <h3>User: <%= message.user %></h3>
           <p>Text: <%= message.text %></p>
           <p>Date: <%= message.added %></p>
+
+          <a href="/messages/<%= index %>">Message Details</a>
         </li>
       <% }); %>
     </ul>
