@@ -1,6 +1,7 @@
+import "dotenv/config";
 import express from "express";
 import path from "node:path";
-import { indexRouter } from "./routes/indexRouter.js";
+import { messagesRouter } from "./routes/messagesRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +13,7 @@ app.use(express.static(path.join(import.meta.dirname, "public")));
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", indexRouter);
+app.use("/", messagesRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);

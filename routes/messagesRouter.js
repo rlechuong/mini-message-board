@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-const indexRouter = Router();
+const messagesRouter = Router();
 
 const messages = [
   {
@@ -15,18 +15,18 @@ const messages = [
   },
 ];
 
-indexRouter.get("/", (req, res) => {
+messagesRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Message Board", messages });
 });
-indexRouter.get("/new", (req, res) => {
+messagesRouter.get("/new", (req, res) => {
   res.render("form");
 });
-indexRouter.post("/new", (req, res) => {
+messagesRouter.post("/new", (req, res) => {
   const { messageText, messageUser } = req.body;
   messages.push({ text: messageText, user: messageUser, added: new Date() });
   res.redirect("/");
 });
-indexRouter.get("/messages/:id", (req, res) => {
+messagesRouter.get("/messages/:id", (req, res) => {
   const message = messages[Number(req.params.id)];
 
   if (!message) {
@@ -37,4 +37,4 @@ indexRouter.get("/messages/:id", (req, res) => {
   res.render("message", { message });
 });
 
-export { indexRouter };
+export { messagesRouter };
