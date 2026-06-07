@@ -12,19 +12,21 @@
       <a href="/new">New Message</a>
     </header>
     <ul>
-      <% messages.forEach((message, index) => { %>
+      <% messages.forEach((message) => { %>
         <li>
-          <h3>User: <%= message.user %></h3>
-          <p>Text: <%= message.text %></p>
+          <h3>User: <%= message.username %></h3>
+          <p>Text: <%= message.message %></p>
           <p>Date:
-            <%= message.added.toLocaleDateString("en-US", {
+            <%= message.added.toLocaleString("en-US", {
               year: "numeric",
               month: "long",
-              day: "numeric"
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit"
             }) %>
           </p>
 
-          <a href="/messages/<%= index %>">Message Details</a>
+          <a href="/messages/<%= message.id %>">Message Details</a>
         </li>
       <% }); %>
     </ul>
