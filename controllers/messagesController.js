@@ -1,3 +1,4 @@
+import { validationResult, matchedData } from "express-validator";
 import { getAllMessages, insertMessage, getMessageById } from "../db/queries.js";
 
 const messagesIndexGet = async (req, res) => {
@@ -7,11 +8,19 @@ const messagesIndexGet = async (req, res) => {
 };
 
 const createMessageGet = (req, res) => {
-  res.render("form");
+  res.render("form", { errors: [], data: {} });
 };
 
 const createMessagePost = async (req, res) => {
-  const { messageUser, messageText } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).render("form", {
+      errors: errors.array(),
+      data: { messageUser: req.body.messageUser, messageText: req.body.messageText },
+    });
+  }
+
+  const { messageUser, messageText } = matchedData(req);
   await insertMessage(messageUser, messageText);
   res.redirect("/");
 };

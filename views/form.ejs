@@ -13,11 +13,19 @@
     <form method="POST" action="/new">
       <h2>New Message</h2>
 
+      <% if (errors.length > 0) { %>
+        <ul>
+          <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      <% } %>
+
       <label for="messageUser">User</label>
-      <input type="text" id="messageUser" name="messageUser" required />
+      <input type="text" id="messageUser" name="messageUser" value="<%= data.messageUser || '' %>" required />
 
       <label for="messageText">Message</label>
-      <textarea id="messageText" name="messageText" required></textarea>
+      <textarea id="messageText" name="messageText" required><%= data.messageText || '' %></textarea>
 
       <div class="form-actions">
         <button type="submit">Send Message</button>
